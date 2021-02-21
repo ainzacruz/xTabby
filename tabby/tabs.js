@@ -2,9 +2,7 @@ document.getElementById('DA').addEventListener("click", deleteAdditional)
 document.getElementById('DS').addEventListener("click", deleteSlected)
 document.getElementById('DD').addEventListener("click", deleteDuplicates)
 
-
-getElementByTagName('Ulist')
-
+// delete all other tabs, but active one
 function deleteAdditional () {
     chrome.tabs.query({}, function(tabs){  
         console.log(tabs);  
@@ -16,24 +14,12 @@ function deleteAdditional () {
      });
 }
 
+//delete selected
 function deleteSlected () {
-    //const emp = [];
-    //use addEventListner to listen out for selected tabs
-    urls.addEventLister('change', (tabs)=>{
-     if(this.checked){
-         chrome.tabs.remove(tab.id)
-         //OR
-         //emp.push(tab.id)
-
-     } 
-
-
-    })
-    //add selected tabs to an array
-    //use tabs.remove on array els
-       //tabs.onRemoved
-    console.log("DS")
+    // add fnctionality for deleting selected
 }
+
+// delete duplicate tabs
 function deleteDuplicates () {
     chrome.tabs.query({}, function(tabs){  
         console.log(tabs);
@@ -53,4 +39,9 @@ function deleteDuplicates () {
             }
         }
      });
+}
+
+// clicking each list actives tab
+function activateTab () {
+    
 }
