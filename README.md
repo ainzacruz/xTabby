@@ -9,6 +9,6 @@ Chrome extension for managing tabs
 Authors
 
 - Adrian Inza-Cruz
-- Matt Jiang
 - Kim Spicer
+- Matt Jiang
 
