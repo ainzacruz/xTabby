@@ -1,9 +1,14 @@
 # xTabby
 Chrome extension for managing tabs
 
+3/7/21 - UPDATED Features
+* Tabs activate on click
+* Select and delete multiple tab items
 
-Features not currently working:
- - Selecting Each Tab and deleting
- 
- Future Features:
- - Selecting each list element activates tab
+
+Authors
+
+Adrian Inza-Cruz
+Matt Jiang
+Kim Spicer
+
