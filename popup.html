@@ -45,12 +45,18 @@
         display: flex;
         justify-content: space-evenly;
       }
+
       .urls {
         overflow-y: scroll;
       }
-
-      ul li {
+      
+      .tab-li {
         list-style-type: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .tab-info {
         padding: 2px;
         display: flex;
         align-items: center;
@@ -58,6 +64,12 @@
         margin: 0.5em;
         border-radius: 10px;
         height: 4em;
+        width: 100%;
+      }
+
+      .tab-info:hover {
+        cursor: pointer;  
+        filter: brightness(90%);
       }
       span {
         color: red;

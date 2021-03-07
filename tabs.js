@@ -44,8 +44,3 @@ function deleteDuplicates() {
   });
 }
 
-// clicking each list actives tab
-function activateTab(tabId) {
-  // const updateProperties = {active: true}
-  // chrome.tabs.update(tabId, updateProperties);
-}
