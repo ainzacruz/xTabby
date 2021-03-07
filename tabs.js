@@ -17,27 +17,28 @@ function deleteAdditional() {
 // delete selected
 function deleteSlected() {
   // add fnctionality for deleting selected
+  console.log('delete selected');
 }
 
 // delete duplicate tabs
 function deleteDuplicates() {
   chrome.tabs.query({}, (tabs) => {
     console.log(tabs);
-    const obj = {};
+    const urls = {};
     tabs.forEach((tab) => {
-      if (!obj[tab.url]) {
-        obj[tab.url] = [tab.id];
+      if (!urls[tab.url]) {
+        urls[tab.url] = [tab.id];
       } else {
-        obj[tab.url].push(tab.id);
+        urls[tab.url].push(tab.id);
       }
     });
-    for (let key in obj) {
-      if (obj[key].length > 1) {
-        for (let i = 1; i < obj[key].length; i++) {
-          chrome.tabs.remove(obj[key][i]);
+    Object.keys(urls).forEach((key) => {
+      if (urls[key].length > 1) {
+        for (let i = 1; i < urls[key].length; i += 1) {
+          chrome.tabs.remove(urls[key][i]);
         }
       }
-    }
+    })   
   });
 }
 
