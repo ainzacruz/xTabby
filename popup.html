@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      button {
+        height: 50px;
+        width: 150px;
+        outline: none;
+        background-color: #476fc5;
+        text-align: center;
+        border-radius: 7px;
+        margin: 5px;
+        border: none;
+        color: white;
+        opacity: 0.6;
+        transition: 0.4s;
+      }
+
+      button:hover {
+        background: #e5e5e5;
+        outline: none;
+        color: black;
+        opacity: 1;
+      }
+
+      body {
+        height: 30em;
+        width: 30em;
+        border: 7px solid #f77374;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      h1 {
+        text-align: center;
+        background-color: #476fc5;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0.5em;
+        color: white;
+      }
+
+      .btn-row {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .urls {
+        overflow-y: scroll;
+      }
+
+      ul li {
+        list-style-type: none;
+        padding: 2px;
+        display: flex;
+        align-items: center;
+        background-color: #b7c2da;
+        margin: 0.5em;
+        border-radius: 10px;
+        height: 4em;
+      }
+      span {
+        color: red;
+      }
+      #Ulist {
+        padding: 1em;
+      }
+      img {
+        width: 20px;
+        height: 20px;
+        padding-left: 5px;
+      }
+      p {
+        margin: 0.5em 0 0.5em 0.5em;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+      input {
+        margin-left: 1em;
+      }
+    </style>
+    <script defer src="tabs.js"></script>
+    <script defer src="popup.js"></script>
+  </head>
+  <h1><span>x</span>-Tabby!</h1>
+  <body>
+    <div class="urls">
+      <ul id="Ulist"></ul>
+    </div>
+    <div class="btn-row">
+      <button id="DS">Delete Selected Tabs</button>
+      <button id="DD">Delete Duplicates</button>
+      <button id="DA">Delete All Other Tabs</button>
+    </div>
+  </body>
+</html>
