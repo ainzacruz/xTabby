@@ -1,5 +1,5 @@
 document.getElementById("DA").addEventListener("click", deleteAdditional);
-document.getElementById("DS").addEventListener("click", deleteSlected);
+document.getElementById("DS").addEventListener("click", deleteSelected);
 document.getElementById("DD").addEventListener("click", deleteDuplicates);
 
 // delete all other tabs, but active one
@@ -15,9 +15,11 @@ function deleteAdditional() {
 }
 
 // delete selected
-function deleteSlected() {
-  // add fnctionality for deleting selected
-  console.log('delete selected');
+function deleteSelected() {
+  const selectedTabs = document.querySelectorAll(".tab-checkbox:checked");
+  selectedTabs.forEach((tab) => {
+    chrome.tabs.remove(Number(tab.value));
+  })
 }
 
 // delete duplicate tabs
@@ -43,4 +45,7 @@ function deleteDuplicates() {
 }
 
 // clicking each list actives tab
-function activateTab() {}
+function activateTab(tabId) {
+  // const updateProperties = {active: true}
+  // chrome.tabs.update(tabId, updateProperties);
+}
