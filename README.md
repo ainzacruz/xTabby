@@ -8,7 +8,7 @@ Chrome extension for managing tabs
 
 Authors
 
-Adrian Inza-Cruz
-Matt Jiang
-Kim Spicer
+- Adrian Inza-Cruz
+- Matt Jiang
+- Kim Spicer
 
