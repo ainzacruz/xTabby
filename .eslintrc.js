@@ -11,8 +11,5 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  rules: {
-    "prefer-arrow-callback": "off",
-    "func-names": "off"
-  },
+  rules: {},
 };

@@ -4,27 +4,27 @@ document.getElementById("DD").addEventListener("click", deleteDuplicates);
 
 // delete all other tabs, but active one
 function deleteAdditional() {
-  chrome.tabs.query({}, function (tabs) {
+  chrome.tabs.query({}, (tabs) => {
     console.log(tabs);
-    tabs.forEach(function (tab) {
-      if (!tab["active"]) {
+    tabs.forEach((tab) => {
+      if (!tab.active) {
         chrome.tabs.remove(tab.id);
       }
     });
   });
 }
 
-//delete selected
+// delete selected
 function deleteSlected() {
   // add fnctionality for deleting selected
 }
 
 // delete duplicate tabs
 function deleteDuplicates() {
-  chrome.tabs.query({}, function (tabs) {
+  chrome.tabs.query({}, (tabs) => {
     console.log(tabs);
     const obj = {};
-    tabs.forEach(function (tab) {
+    tabs.forEach((tab) => {
       if (!obj[tab.url]) {
         obj[tab.url] = [tab.id];
       } else {

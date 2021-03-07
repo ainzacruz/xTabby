@@ -1,7 +1,7 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const urlList = document.getElementById("Ulist");
-  chrome.tabs.query({}, function (tabs) {
-    tabs.forEach(function (tab) {
+  chrome.tabs.query({}, (tabs) => {
+    tabs.forEach((tab) => {
       const li = document.createElement("li");
       const input = document.createElement(`input`);
       input.setAttribute("type", "checkbox");
