@@ -16,7 +16,7 @@ chrome.tabs.query({}, (tabs) => {
 
     const tabInfo = document.createElement("div");
     tabInfo.setAttribute("class", "tab-info");
-    tabInfo.append(img, p)
+    tabInfo.append(img, p);
     tabInfo.addEventListener("click", () => activateTab(tab.id, tab.windowId));
 
     li.append(input, tabInfo);
@@ -28,7 +28,6 @@ chrome.tabs.query({}, (tabs) => {
 });
 
 function activateTab(tabId, windowId) {
-  chrome.tabs.update(tabId, {active: true});
-  chrome.windows.update(windowId, {focused: true});
+  chrome.tabs.update(tabId, { active: true });
+  chrome.windows.update(windowId, { focused: true });
 }
-
