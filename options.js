@@ -17,11 +17,13 @@ function addUrlPrefix(event) {
     chrome.storage.sync.set({ urlPrefixes: urlPrefixesGlobal});
   }
 
+  document.getElementById('url').value = '';
+
   displayUrlPrefixes();
 }
 
 /**
- * Displays current urlPrefixes in chrome storage.
+ * Goes through chrome storage and adds any un-rendered urlPrefixes to the list.
  */
 function displayUrlPrefixes() {
   chrome.storage.sync.get("urlPrefixes", ({ urlPrefixes }) => {
@@ -34,7 +36,11 @@ function displayUrlPrefixes() {
       if (document.getElementById(urlPrefix)) return;
 
       const li = document.createElement('li');
-      li.append(urlPrefix);
+      const removeButton = document.createElement('button');
+      removeButton.innerHTML = 'x';
+      removeButton.addEventListener('click', () => {deleteUrlPrefix(urlPrefix)});
+
+      li.append(removeButton, urlPrefix);
       li.setAttribute('class', 'url-prefix');
       li.setAttribute('id', urlPrefix);
       urlPrefixesList.appendChild(li);
@@ -42,3 +48,13 @@ function displayUrlPrefixes() {
   });
 }
 
+/**
+ * Deletes list item and urlPrefix from chrome storage.
+ * 
+ * @param {*} urlPrefix The urlPrefix to delete.
+ */
+function deleteUrlPrefix(urlPrefix){
+  document.getElementById(urlPrefix).remove();
+  delete urlPrefixesGlobal[urlPrefix];
+  chrome.storage.sync.set({ urlPrefixes: urlPrefixesGlobal});
+}
