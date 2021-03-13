@@ -1,4 +1,5 @@
 const urlList = document.getElementById("Ulist");
+
 chrome.tabs.query({}, (tabs) => {
   tabs.forEach((tab) => {
     const li = document.createElement("li");
