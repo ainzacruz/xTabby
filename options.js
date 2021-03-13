@@ -1,37 +1,44 @@
-// function to add url
-function addUrl(event) {
-  // console.log('omg hello');
-  // console.log(e);
+let urlPrefixesGlobal;
+document.getElementById('add-btn').addEventListener('click', addUrlPrefix);
+displayUrlPrefixes();
+
+/**
+ * Adds new urlPrefix to chrome storage and refreshes the displayed list.
+ * 
+ * @param {*} event 
+ */
+function addUrlPrefix(event) {
   event.preventDefault()
 
   const url = document.getElementById('url').value;
+  if (url) {
+    // TODO: if it already exists in urlPrefixes, show error
+    urlPrefixesGlobal[url] = true;
+    chrome.storage.sync.set({ urlPrefixes: urlPrefixesGlobal});
+  }
 
-  console.log(url);
-
-  // if url is not empty string, then add to chrome.storage
-
-  // var color = document.getElementById('color').value;
-  // var likesColor = document.getElementById('like').checked;
-  // // grab value of text field
-
-
-  // chrome.storage.sync.set({
-  //   favoriteColor: color,
-  //   likesColor: likesColor
-  // }, function() {
-  //   // Update status to let user know options were saved.
-  //   var status = document.getElementById('status');
-  //   status.textContent = 'Options saved.';
-  //   setTimeout(function() {
-  //     status.textContent = '';
-  //   }, 750);
-  // });
+  displayUrlPrefixes();
 }
 
-console.log('whatup council');
-chrome.storage.sync.get("urlPrefixes", ({ urlPrefixes }) => {
-  console.log('urlPrefixes we got in options page: ', urlPrefixes);
-})
-document.getElementById('add-btn').addEventListener('click', addUrl);
+/**
+ * Displays current urlPrefixes in chrome storage.
+ */
+function displayUrlPrefixes() {
+  chrome.storage.sync.get("urlPrefixes", ({ urlPrefixes }) => {
+    // set urlPrefixes globally so it can be accessed elsewhere
+    urlPrefixesGlobal = urlPrefixes;
 
-// show list of urlPrefixes 
+    const urlPrefixesList = document.querySelector('#url-prefixes');
+    Object.keys(urlPrefixesGlobal).forEach((urlPrefix) => {
+      // if already rendered, don't add again
+      if (document.getElementById(urlPrefix)) return;
+
+      const li = document.createElement('li');
+      li.append(urlPrefix);
+      li.setAttribute('class', 'url-prefix');
+      li.setAttribute('id', urlPrefix);
+      urlPrefixesList.appendChild(li);
+    })
+  });
+}
+
