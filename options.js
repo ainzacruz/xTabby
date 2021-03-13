@@ -16,11 +16,18 @@ addInput.addEventListener("keypress", () => {
 function addUrlPrefix(event) {
   event.preventDefault();
 
-  const urlPrefix = document.getElementById("add-input").value;
+  let urlPrefix = document.getElementById("add-input").value;
   if (urlPrefix) {
-    // TODO: if it already exists in urlPrefixes, show error
-    urlPrefixesGlobal[urlPrefix] = true;
-    chrome.storage.sync.set({ urlPrefixes: urlPrefixesGlobal });
+    // check for validity
+    if (urlPrefix.includes(' ')) {
+      alert('URL may not contain spaces');
+    } else { 
+      // in case user enters 'www.', strip it 
+      if (urlPrefix.startsWith('www.')) urlPrefix = urlPrefix.slice(4);
+
+      urlPrefixesGlobal[urlPrefix] = true;
+      chrome.storage.sync.set({ urlPrefixes: urlPrefixesGlobal });
+    }
   }
 
   document.getElementById("add-input").value = "";

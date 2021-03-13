@@ -1,5 +1,5 @@
 const urlPrefixes = {
-  "www.facebook.com": true,
+  "facebook.com": true,
   "zoom.us/j/": true,
   "zoom.us/s/": true,
   "zoom.us/postattendee": true,
