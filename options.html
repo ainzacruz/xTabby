@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Poof Options</title>
+  <title>xTabby Options</title>
   <script defer src="options.js"></script>
+  <style>
+    .settings-div {
+      margin-left: 20px; 
+    }
+    #add-btn{
+      color: blue;
+      font-weight: bold;
+    }
+    #add-input-container, #add-input {
+      font-style: italic;
+      font-weight: bold;
+    }
+    #url-prefixes {
+      padding: 0px;
+    }
+    .remove-btn {
+      color: red;
+    }
+    .url-prefix {
+      list-style-type: none;
+      font-style: italic;
+    }
+  </style>
 </head>
 <body>
 
-  <h1>Poof Options</h1>
+  <h1>xTabby Options</h1>
 
-  <h2>Poof a new URL</h2>
-  <form>
-    <label for='url'>Autoclose URLs that begin with...</label>
-    <input type ='text' name='url' id='url'/>
-    <input type = 'submit' value='Add' id='add-btn'/>
-  </form>
-
-  <!-- TODO: add remove button to each li -->
-  <h2>URLs you are currently poofing</h2>
-  <ul id="url-prefixes">
-    <!-- <li>zoom.us/j/</li>
-    <li>zoom.us/s/</li>
-    <li>zoom.us/postattendee</li>
-    <li>zoom.us/wc/leave</li>
-    <li>prod.liveshare.vsengsaas.visualstudio.com/join</li> -->
-  </ul>
-
-  <h2>Upcoming features...</h2>
-  <ul>
-    <li>Add custom URLs to poof</li>
-    <li>Close tab only after redirect popup is clicked</li> 
-    <li>Add new URL from current tab by clicking on Poof icon</li>   
-  </ul>
+  <h2>Autoclose Tabs</h2>
+  <p>Autoclose Zoom landing pages, websites you want to block, etc.</p>
+  <div class="settings-div">
+    <form id="add-form">
+      <div id="add-input-container">
+        <span>https://</span>
+        <input type='text' name='url' id='add-input' placeholder='zoom.us/j/'/>
+        <span>...</span>
+      </div>
+      <input type='submit' value='Add New URL to Autoclose' id='add-btn'/>
+    </form>
+    <ul id="url-prefixes"></ul>
+  </div>
 </body>
 </html>

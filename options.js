@@ -2,6 +2,10 @@ let urlPrefixesGlobal;
 document.getElementById('add-btn').addEventListener('click', addUrlPrefix);
 displayUrlPrefixes();
 
+const addInput = document.querySelector('#add-input')
+addInput.style.width = `${(addInput.placeholder.length + 1) * 8}px`
+addInput.addEventListener('keypress', () => {addInput.style.width = `${(addInput.value.length + 1) * 8}px`});
+
 /**
  * Adds new urlPrefix to chrome storage and refreshes the displayed list.
  * 
@@ -10,14 +14,14 @@ displayUrlPrefixes();
 function addUrlPrefix(event) {
   event.preventDefault()
 
-  const url = document.getElementById('url').value;
-  if (url) {
+  const urlPrefix = document.getElementById('add-input').value;
+  if (urlPrefix) {
     // TODO: if it already exists in urlPrefixes, show error
-    urlPrefixesGlobal[url] = true;
+    urlPrefixesGlobal[urlPrefix] = true;
     chrome.storage.sync.set({ urlPrefixes: urlPrefixesGlobal});
   }
 
-  document.getElementById('url').value = '';
+  document.getElementById('add-input').value = '';
 
   displayUrlPrefixes();
 }
@@ -37,6 +41,7 @@ function displayUrlPrefixes() {
 
       const li = document.createElement('li');
       const removeButton = document.createElement('button');
+      removeButton.setAttribute('class', 'remove-btn');
       removeButton.innerHTML = 'x';
       removeButton.addEventListener('click', () => {deleteUrlPrefix(urlPrefix)});
 
