@@ -1,10 +1,11 @@
-const urlPrefixes = ['www.facebook.com', 'zoom.us/j/', 'zoom.us/s/', 'zoom.us/postattendee', 'zoom.us/wc/leave', 'prod.liveshare.vsengsaas.visualstudio.com/join'];                            
+// const urlPrefixes = ['www.facebook.com', 'zoom.us/j/', 'zoom.us/s/', 'zoom.us/postattendee', 'zoom.us/wc/leave', 'prod.liveshare.vsengsaas.visualstudio.com/join'];                            
+const urlPrefixes = {'www.facebook.com': true, 'zoom.us/j/': true, 'zoom.us/s/': true, 'zoom.us/postattendee': true, 'zoom.us/wc/leave': true, 'prod.liveshare.vsengsaas.visualstudio.com/join': true};
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.sync.set({ urlPrefixes });
 });
 
-// Set up the listener for the upcoming message,sender from the content.js
+// Set up the listener for the upcoming message, sender from the content.js
 chrome.runtime.onMessage.addListener((message, sender) => {
   if (message.shouldCloseTab) {
     console.log('message received')
