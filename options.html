@@ -1,64 +1,72 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>xTabby Options</title>
-  <script defer src="options.js"></script>
-  <style>
-    .option {
-      display: flex;
-      flex-direction: row;
-    }
-    .option-header {
-      width: 50%;
-    }
-    .option-content {
-      width: 50%;
-    }
-    #add-btn{
-      color: blue;
-      font-weight: bold;
-    }
-    #add-input-container, #add-input {
-      font-style: italic;
-      font-weight: bold;
-    }
-    #url-prefixes {
-      padding: 0px;
-    }
-    .remove-btn {
-      color: red;
-    }
-    .url-prefix {
-      list-style-type: none;
-      font-style: italic;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>xTabby Options</h1>
-  <div class="option">
-    <div class="option-header">
-      <h2>Autoclose Tabs</h2>
-      <p>Autoclose Zoom landing pages, websites you want to block, etc.</p>
+  <head>
+    <title>xTabby Options</title>
+    <script defer src="options.js"></script>
+    <style>
+      .option {
+        display: flex;
+        flex-direction: row;
+      }
+      .option-header {
+        width: 50%;
+      }
+      .option-content {
+        width: 50%;
+      }
+      #add-btn {
+        color: blue;
+        font-weight: bold;
+      }
+      #add-input-container,
+      #add-input {
+        font-style: italic;
+        font-weight: bold;
+      }
+      #url-prefixes {
+        padding: 0px;
+      }
+      .remove-btn {
+        color: red;
+      }
+      .url-prefix {
+        list-style-type: none;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>xTabby Options</h1>
+    <div class="option">
+      <div class="option-header">
+        <h2>Autoclose Tabs</h2>
+        <p>
+          Automatically close Zoom landing pages, websites you want to block,
+          etc after 3 seconds.
+        </p>
+      </div>
+      <div class="option-content">
+        <form id="add-form">
+          <div id="add-input-container">
+            <span>https://</span>
+            <input
+              type="text"
+              name="url"
+              id="add-input"
+              placeholder="zoom.us/j/"
+            />
+            <span>...</span>
+          </div>
+          <input type="submit" value="Add New URL to Autoclose" id="add-btn" />
+        </form>
+        <ul id="url-prefixes"></ul>
+      </div>
     </div>
-    <div class="option-content">
-      <form id="add-form">
-        <div id="add-input-container">
-          <span>https://</span>
-          <input type='text' name='url' id='add-input' placeholder='zoom.us/j/'/>
-          <span>...</span>
-        </div>
-        <input type='submit' value='Add New URL to Autoclose' id='add-btn'/>
-      </form>
-      <ul id="url-prefixes"></ul>
-    </div>
-  </div>
-  <!-- <div class="option">
+    <!-- <div class="option">
     <div class="option-header">
       <h2>Another Option</h2>
     </div>
     <div class="option-content">Another Option Content</div>
   </div> -->
-</body>
+  </body>
 </html>
