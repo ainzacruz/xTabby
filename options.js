@@ -56,7 +56,7 @@ function displayUrlPrefixes() {
         deleteUrlPrefix(urlPrefix);
       });
 
-      li.append(removeButton, urlPrefix);
+      li.append(removeButton, urlPrefix, '...');
       li.setAttribute("class", "url-prefix");
       li.setAttribute("id", urlPrefix);
       urlPrefixesList.appendChild(li);

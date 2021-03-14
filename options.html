@@ -48,7 +48,7 @@
       <div class="option-content">
         <form id="add-form">
           <div id="add-input-container">
-            <span>https://www.</span>
+            <span>https://</span>
             <input
               type="text"
               name="url"
@@ -59,7 +59,10 @@
           </div>
           <input type="submit" value="Add New URL to Autoclose" id="add-btn" />
         </form>
-        <ul id="url-prefixes"></ul>
+        <div id="url-prefixes-container">
+          <p style='font-weight:bold'>You are currently autoclosing URLs that begin with:</p>
+          <ul id="url-prefixes"></ul>
+        </div>
       </div>
     </div>
     <!-- <div class="option">
