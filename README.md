@@ -5,7 +5,7 @@ Chrome extension for managing tabs.
 ## Get Started
 
 1. Clone this repository
-2. Load the unpacked extension in Google Chrome (instructions [here](https://developer.chrome.com/docs/extensions/mv3/getstarted/#manifest))
+2. Load the unpacked extension in Google Chrome (steps 1-3 [here](https://developer.chrome.com/docs/extensions/mv3/getstarted/#manifest))
 3. Run `git pull origin main` regularly to make sure you have the latest version
 
 ## Features
