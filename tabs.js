@@ -19,7 +19,7 @@ function deleteSelected() {
   const selectedTabs = document.querySelectorAll(".tab-checkbox:checked");
   selectedTabs.forEach((tab) => {
     chrome.tabs.remove(Number(tab.value));
-  })
+  });
 }
 
 // delete duplicate tabs
@@ -40,7 +40,6 @@ function deleteDuplicates() {
           chrome.tabs.remove(urls[key][i]);
         }
       }
-    })   
+    });
   });
 }
-
