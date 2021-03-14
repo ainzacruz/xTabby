@@ -17,4 +17,3 @@ chrome.runtime.onMessage.addListener((message, sender) => {
     chrome.tabs.remove(sender.tab.id);
   }
 });
-

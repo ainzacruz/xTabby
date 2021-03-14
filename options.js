@@ -19,11 +19,11 @@ function addUrlPrefix(event) {
   let urlPrefix = document.getElementById("add-input").value;
   if (urlPrefix) {
     // check for validity
-    if (urlPrefix.includes(' ')) {
-      alert('URL may not contain spaces');
-    } else { 
-      // in case user enters 'www.', strip it 
-      if (urlPrefix.startsWith('www.')) urlPrefix = urlPrefix.slice(4);
+    if (urlPrefix.includes(" ")) {
+      alert("URL may not contain spaces");
+    } else {
+      // in case user enters 'www.', strip it
+      if (urlPrefix.startsWith("www.")) urlPrefix = urlPrefix.slice(4);
 
       urlPrefixesGlobal[urlPrefix] = true;
       chrome.storage.sync.set({ urlPrefixes: urlPrefixesGlobal });
@@ -56,7 +56,7 @@ function displayUrlPrefixes() {
         deleteUrlPrefix(urlPrefix);
       });
 
-      li.append(removeButton, urlPrefix, '...');
+      li.append(removeButton, urlPrefix, "...");
       li.setAttribute("class", "url-prefix");
       li.setAttribute("id", urlPrefix);
       urlPrefixesList.appendChild(li);
